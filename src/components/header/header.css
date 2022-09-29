@@ -1,0 +1,22 @@
+.header {
+  background: linear-gradient(30deg, #355c7d, #6c5b7b, #c06c84);
+  height: 390px;
+}
+
+.title {
+  color: white;
+  padding: 30px 0 0 90px;
+}
+
+.edit-profile {
+  margin: 130px 0 0 90px;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: #11CDEF;
+  cursor: pointer;
+}

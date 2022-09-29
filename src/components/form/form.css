@@ -1,0 +1,24 @@
+.edit {
+  margin: 30px 0 0 40px;
+  background-color: rgba(222, 219, 219, 0.325);
+  padding: 30px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.edit-name {
+  background-color: rgb(255, 255, 255);
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+.edit h2 {
+  margin-bottom: 10px;
+}
+
+.edit input {
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+}

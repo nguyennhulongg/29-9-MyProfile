@@ -1,0 +1,46 @@
+.body {
+  background-color: white;
+  min-height: 400px;
+  width: 75%;
+  margin-top: -100px;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  margin-top: -70px;
+}
+
+.info {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detail-info {
+  margin-top: 25px;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.desc {
+  border-right: none;
+}
+
+.detail-info h3 {
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.more-info {
+  display: flex;
+}

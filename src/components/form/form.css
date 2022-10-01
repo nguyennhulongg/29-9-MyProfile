@@ -1,24 +1,52 @@
 .edit {
-  margin: 30px 0 0 40px;
-  background-color: rgba(222, 219, 219, 0.325);
+  margin: 30px;
+  background-color: rgba(249, 202, 60, 0.32);
   padding: 30px;
-  width: 400px;
   border-radius: 10px;
 }
 
-.edit-name {
-  background-color: rgb(255, 255, 255);
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-detail {
   padding-left: 15px;
   border-radius: 10px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .edit h2 {
   margin-bottom: 10px;
 }
 
-.edit input {
-  padding: 15px;
+.edit input{
+  padding: 10px 20px;
   background-color: rgb(255, 255, 255);
   border: none;
   outline: none;
+  border-radius: 10px;
+  box-shadow: 0px -1px 7px 0px rgba(0, 0, 0, 0.5);
+  margin: 10px 0 ;
+}
+
+.edit-description {
+  width: 550px;
+}
+
+.edit-birthday {
+  width: 240px;
+}
+
+.edit button {
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin-top: 18px;
+  border-radius: 10px;
+  width: 170px;
+  background-color: rgb(45, 248, 137);
+  cursor: pointer;
 }

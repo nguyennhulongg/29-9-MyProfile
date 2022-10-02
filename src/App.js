@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import noteApi from './api/noteApi';
 import './App.css';
 import EditPage from './components/editPage/EditPage';
 import Header from './components/header/Header';
@@ -13,13 +14,20 @@ function App() {
     description: "I'm Long. I am very handsome, but I'm poor :))))"
   })
 
-  const [docs, setDoc] = useState([
-    {
-      title: "fhds",
-      content: "dufhds",
-      id: "1"
+  const [docs, setDoc] = useState([])
+
+  useEffect(() => {
+    const fetchDocument = async () => {
+      try {
+        const response = await noteApi.getAll();
+        setDoc(response);
+      } catch(errors) {
+        console.log(errors);
+      }
     }
-  ])
+
+    fetchDocument();
+  }, [])
 
   const [isEdit, setEdit] = useState(false);
   const [isCreate, setCreate] = useState(false);

@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
+import noteApi from '../../api/noteApi';
 import "./createDoc.css"
 
 const CreateDoc = (props) => {
-  const { docs, setDoc, setCreate } = props;
-
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const { setCreate, setDoc } = props;
 
   const [addedDocument, setAddedDocument] = useState({
     title: "",
@@ -13,23 +11,39 @@ const CreateDoc = (props) => {
     id: ""
   })
 
+  const id = Math.floor(Math.random() * 1000);
+
   const handlEnterTitle = e => {
-    setTitle(e.target.value);
+    const title = e.target.value;
+    setAddedDocument(addedDocument => ({
+      ...addedDocument,
+      title: title,
+      id: id
+    }));
   }
 
   const handlEnterContent = e => {
-    setContent(e.target.value);
+    const content = e.target.value;
+    setAddedDocument(addedDocument => ({
+      ...addedDocument,
+      content: content,
+      id: id
+    }));
   }
 
-  const handleSaveNewDoc = e => {
+  const handleSaveNewDoc = async (e) => {
     e.preventDefault();
-    setAddedDocument({
-      ...addedDocument,
-      title: title,
-      content: content,
-      id: Math.floor(Math.random() * 1000)
-    })
-    console.log(addedDocument)
+    await noteApi.post(addedDocument);
+    const fetchDocument = async () => {
+      try {
+        const response = await noteApi.getAll();
+        setDoc(response);
+      } catch(errors) {
+        console.log(errors);
+      }
+    }
+    document.querySelector('.create-friend').reset();
+    fetchDocument();
   }
 
 
@@ -42,7 +56,7 @@ const CreateDoc = (props) => {
         <form action="">
           <p>Title</p>
           <input onChange={handlEnterTitle} className='post-name' type="text" />
-          <button onClick={handleSaveNewDoc} className='save-btn'>Save</button>
+          <button onClick={handleSaveNewDoc} className='save-btn'>Save and back</button>
           <p>Content</p>
           <textarea onChange={handlEnterContent} className='content'></textarea>
         </form>
